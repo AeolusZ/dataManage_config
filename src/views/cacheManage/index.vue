@@ -56,6 +56,8 @@ import aeolus_form from '../../components/Form'    //form表单组件
 import aeolus_pie from '../../components/Pie'   //饼图组件
 import { available, dataCleanStrategy, priority } from '../../utils/publicObj'
 import { getSelect, getRadio } from '../../utils/publicFunc'
+import { fetchList } from '@/api/article'
+const color = ['111', '222', '333', '444', '555']
 export default {
     name: 'cache-manage',
     components: {
@@ -86,6 +88,7 @@ export default {
                     {id: 7, name: "空间", value: 30, color: '#ca8622'}, 
                 ],}
             ],
+            cacheList2: [],
             configDialogVisible: false,
             cacheDataVisible: false,
             processData: [
@@ -180,8 +183,45 @@ export default {
         }
     },
     mounted(){
+        this.init()
     },
     methods: {
+        init(){
+            // let resp = await fetchList()
+            // console.log(resp)
+            // resp.data.items.forEach(async val => {
+            //     let resp2 = await fetchList()
+            //     resp2.data.items.forEach((val2, index) => {
+            //         for (var i in val2) {
+            //             if(i === 'nameCopy') val2['name'] = val2[i]
+            //             if(i === 'valueCopy') val2['value'] = val2[i]
+            //             val2.color = color[index]
+            //         }
+            //     })
+            //     val.cacheData = resp2.data.items
+            //     // val.cacheData = arr
+            // })
+            // this.cacheList2 = resp.data.items
+            fetchList().then(resp => {
+                resp.data.items.forEach(val => {
+                    fetchList().then(resp2 => {
+                        // resp2.data.items.forEach((val2, index) => {
+                        //     for (var i in val2) {
+                        //         if(i === 'nameCopy') val2['name'] = val2[i]
+                        //         if(i === 'valueCopy') val2['value'] = val2[i]
+                        //         val2.color = color[index]
+                        //     }
+                        // })
+                        val.cacheData = resp2.data.items
+                    })
+                })
+                console.log(resp.data.items)
+                this.cacheList2 = resp.data.items
+                console.log('总的',this.cacheList2)
+                console.log('总的其中一项',this.cacheList2[0])
+                console.log('总的其中一项的一个属性的值',this.cacheList2[0].cacheData)
+            })
+        },
         handleChangeItem (){
             console.log('改变model值', this.configBasicModel)
             

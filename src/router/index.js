@@ -24,6 +24,19 @@ export const constantRoutes = [
           meta: { title: '缓存管理', icon: 'component', noCache: true }
         }
       ]
+    },
+    {
+      path: '/imgManage',
+      component: Layout,
+      hidden: false,
+      children: [
+        {
+          path: 'index',
+          component: () => import('@/views/waterfallFlow/index'),
+          name: 'imgManage',
+          meta: { title: '图片管理', icon: 'component', noCache: true }
+        }
+      ]
     }
   ]
 
