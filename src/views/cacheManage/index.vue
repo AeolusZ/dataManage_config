@@ -202,20 +202,15 @@ export default {
             //     // val.cacheData = arr
             // })
             // this.cacheList2 = resp.data.items
+            // console.log('总的',this.cacheList2)
+            // console.log('总的其中一项',this.cacheList2[0])
+            // console.log('总的其中一项的一个属性的值',this.cacheList2[0].cacheData)
             fetchList().then(resp => {
                 resp.data.items.forEach(val => {
                     fetchList().then(resp2 => {
-                        // resp2.data.items.forEach((val2, index) => {
-                        //     for (var i in val2) {
-                        //         if(i === 'nameCopy') val2['name'] = val2[i]
-                        //         if(i === 'valueCopy') val2['value'] = val2[i]
-                        //         val2.color = color[index]
-                        //     }
-                        // })
                         val.cacheData = resp2.data.items
                     })
                 })
-                console.log(resp.data.items)
                 this.cacheList2 = resp.data.items
                 console.log('总的',this.cacheList2)
                 console.log('总的其中一项',this.cacheList2[0])

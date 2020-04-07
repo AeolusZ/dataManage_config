@@ -1,6 +1,6 @@
 <template>
-    <div :style="{position: 'relative'}">
-        <img class="imgStyle" v-for="item in data" :key="item.id" v-bind:src="item.src" :style="{width: width, ...item.style}"/>
+    <div>
+        <img class="imgStyle" v-for="item in data" :key="item.id" v-bind:src="item.src" :style="{width: width, ...item.style}" @load="initImg"/>
     </div>
 </template>
 <script>
@@ -8,13 +8,14 @@ export default {
     name: 'aeolus-waterfall',
     props: ['data', 'width'],
     mounted(){
-        const _this = this
-        this.timer = setInterval(function(){
-            _this.initImg()
-        }, 0)
+        this.initImg()
+        // const _this = this
+        // this.timer = setInterval(function(){
+        //     _this.initImg()
+        // }, 0)
     },
     beforeDestroy(){
-        clearInterval(this.timer)
+        // clearInterval(this.timer)
     },
     methods: {
         initImg(){
