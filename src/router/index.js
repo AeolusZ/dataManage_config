@@ -37,6 +37,19 @@ export const constantRoutes = [
           meta: { title: '图片管理', icon: 'component', noCache: true }
         }
       ]
+    },
+    {
+      path: '/light',
+      component: Layout,
+      hidden: false,
+      children: [
+        {
+          path: 'index',
+          component: () => import('@/views/trafficLight/index'),
+          name: 'light',
+          meta: { title: '定时器管理', icon: 'component', noCache: true }
+        }
+      ]
     }
   ]
 
