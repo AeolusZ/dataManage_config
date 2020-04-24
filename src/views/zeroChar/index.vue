@@ -1,8 +1,8 @@
 <template>
     <div :style="{margin: '10px 30px' }">
-        <el-button @click="handleClick('郑如秀')">点击生成评论</el-button>
-        <el-card class="comment">{{comment}}</el-card>
-        <el-card class="comment">{{uncomment}}</el-card>
+        <el-button @click="handleClick('猪头')">点击生成加密文案</el-button>
+        <el-card title="加密文案" class="comment">{{comment}}</el-card>
+        <el-card title="文案中秘文" class="comment">{{uncomment}}</el-card>
     </div>
 </template>
 <script>
@@ -21,7 +21,7 @@ export default {
             let mm = username.split('').map(char => {
                 return this.zeroPad(char.charCodeAt(0).toString(2))
             }).join(' ')
-            this.comment = `敏感${this.binaryToZeroWidth(mm)}词`
+            this.comment = `这是${this.binaryToZeroWidth(mm)}一条加密文案`
             this.uncomment = `${this.binaryToText(this.zeroWidthToBinary(this.binaryToZeroWidth(mm)))}`
         },
         binaryToZeroWidth(binary) {
@@ -32,7 +32,7 @@ export default {
                 } else if (num === 0) {
                     return '\u200C'; // zero-width non-joiner
                 }
-                return '\u200D'; // zero-width joiner 零宽连接符
+                return '\u200D'; // zero-width joiner 零宽连接符c
             }).join('') // zero-width no-break space
         },
         zeroWidthToBinary (string) {
