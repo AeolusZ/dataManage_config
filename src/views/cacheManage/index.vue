@@ -123,14 +123,14 @@ export default {
                 {id: 5, label: '清理流程名', type: 'input', dataIndex: 'cleanProcessName', rules: [
                     { required: true, message: '请输入清理流程名', trigger: 'blur' },
                 ]},
-                {id: 6, label: '创建时间', type: 'date-picker', dataIndex: 'creationTime', rules: [
+                {id: 6, label: '创建时间', type: 'double-date-picker', dataIndex1: 'creationTime1', dataIndex2: 'creationTime2', rules: [
                     { required: true, message: '请输入创建时间', trigger: 'blur' },
                 ]},
                 {id: 7, label: '是否可用', type: 'radio', dataIndex: 'available', options: getRadio(available), rules: [
                     { required: true, message: '请选择是否可用', trigger: ['change'] },
                 ]},
             ],
-            configBasicModel: { cacheName: '', displayName: '', cleanTime: '', mountPoint: '', cleanProcessName: '', creationTime: '', available: ''},
+            configBasicModel: { cacheName: '', displayName: '', cleanTime: '', mountPoint: '', cleanProcessName: '', creationTime1: '', creationTime2: '', available: ''},
             cacheDataFormList: [  //各类缓存配置
                 {id: 1, label: '数据类型', type: 'input', dataIndex: 'dataType', rules: [
                     { required: true, message: '请输入数据类型', trigger: 'blur' },
@@ -222,7 +222,7 @@ export default {
             
         },
         submitForm () {
-            console.log('提交')
+            console.log('提交', this.configBasicModel)
         },
         submitCacheData(){
             console.log('要提交的缓存数据参数：', this.cacheDataModel)

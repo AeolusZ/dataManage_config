@@ -50,6 +50,19 @@ export const constantRoutes = [
           meta: { title: '定时器管理', icon: 'component', noCache: true }
         }
       ]
+    },
+    {
+      path: '/zero',
+      component: Layout,
+      hidden: false,
+      children: [
+        {
+          path: 'zero',
+          component: () => import('@/views/zeroChar/index'),
+          name: 'zero',
+          meta: { title: '零宽字符', icon: 'component', noCache: true }
+        }
+      ]
     }
   ]
 

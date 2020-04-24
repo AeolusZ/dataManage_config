@@ -2,6 +2,7 @@
     <div id="traffic-light" :style="trafficStyle"></div>
 </template>
 <script>
+import { Message } from 'element-ui'
 export default {
     name: 'trafficLight',
     data(){
@@ -11,6 +12,8 @@ export default {
     },
     async mounted(){
        this.loop()
+       let eg = this.eg()
+       console.log(eg)
     },
     beforeDestroy(){
         clearInterval(this.timer)
@@ -32,6 +35,15 @@ export default {
             await this.changeColor(1000, "yellow");
             await this.changeColor(2000, "red");
             this.loop() 
+        },
+        eg(){
+            outer: while(true){
+                inner: while(true){
+                    console.log('no')
+                    break outer;  //不加outer造成死循环
+                }
+            }
+            console.log('finished')
         }
     }
 }
