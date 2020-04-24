@@ -1,8 +1,8 @@
 <template>
     <div :style="{margin: '10px 30px' }">
         <el-button @click="handleClick('猪头')">点击生成加密文案</el-button>
-        <el-card title="加密文案" class="comment">{{comment}}</el-card>
-        <el-card title="文案中秘文" class="comment">{{uncomment}}</el-card>
+        <el-card header="加密文案" class="comment">{{comment}}</el-card>
+        <el-card header="文案中秘文" class="comment">{{uncomment}}</el-card>
     </div>
 </template>
 <script>
