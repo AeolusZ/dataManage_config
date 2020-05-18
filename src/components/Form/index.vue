@@ -73,6 +73,14 @@ export default {
             pickerOptions2: {}
         }
     },
+    beforeCreate(){ console.log('子组件创建前')},
+    created(){console.log('子组件创建')},
+    beforeMount(){console.log('子组件加载前')},
+    mounted(){console.log('子组件加载')},
+    beforeUpdate(){console.log('子组件更新前')},
+    updated(){console.log('子组件更新')},
+    beforeDestroy(){console.log('子组件销毁前')},
+    destroyed(){console.log('子组件销毁')},
     methods:{
         handleChange(){  //每个item改变时触发
             this.$emit('change')

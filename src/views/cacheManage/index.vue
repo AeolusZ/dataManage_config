@@ -182,29 +182,19 @@ export default {
             cacheData: []
         }
     },
+    beforeCreate(){ console.log('父组件创建前')},
+    created(){console.log('父组件创建')},
+    beforeMount(){console.log('父组件加载前')},
+    beforeUpdate(){console.log('父组件更新前')},
+    updated(){console.log('父组件更新')},
+    beforeDestroy(){console.log('父组件销毁前')},
+    destroyed(){console.log('父组件销毁')},
     mounted(){
+        console.log('父组件加载')
         this.init()
     },
     methods: {
         init(){
-            // let resp = await fetchList()
-            // console.log(resp)
-            // resp.data.items.forEach(async val => {
-            //     let resp2 = await fetchList()
-            //     resp2.data.items.forEach((val2, index) => {
-            //         for (var i in val2) {
-            //             if(i === 'nameCopy') val2['name'] = val2[i]
-            //             if(i === 'valueCopy') val2['value'] = val2[i]
-            //             val2.color = color[index]
-            //         }
-            //     })
-            //     val.cacheData = resp2.data.items
-            //     // val.cacheData = arr
-            // })
-            // this.cacheList2 = resp.data.items
-            // console.log('总的',this.cacheList2)
-            // console.log('总的其中一项',this.cacheList2[0])
-            // console.log('总的其中一项的一个属性的值',this.cacheList2[0].cacheData)
             fetchList().then(resp => {
                 resp.data.items.forEach(val => {
                     fetchList().then(resp2 => {

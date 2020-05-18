@@ -15,9 +15,6 @@ export default {
        let eg = this.eg()
        console.log(eg)
     },
-    beforeDestroy(){
-        clearInterval(this.timer)
-    },
     methods: {
         async changeColor(duration, color){
             this.trafficStyle = {

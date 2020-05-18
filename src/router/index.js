@@ -63,6 +63,45 @@ export const constantRoutes = [
           meta: { title: '零宽字符', icon: 'component', noCache: true }
         }
       ]
+    },
+    {
+      path: '/drag',
+      component: Layout,
+      hidden: false,
+      children: [
+        {
+          path: 'drag',
+          component: () => import('@/views/dragManage/index'),
+          name: 'drag',
+          meta: { title: '拖拽管理', icon: 'component', noCache: true }
+        }
+      ]
+    },
+    {
+      path: '/layout',
+      component: Layout,
+      hidden: false,
+      children: [
+        {
+          path: 'layout',
+          component: () => import('@/views/layoutManage/index'),
+          name: 'layout',
+          meta: { title: '布局管理', icon: 'component', noCache: true }
+        }
+      ]
+    },
+    {
+      path: '/communicate',
+      component: Layout,
+      hidden: false,
+      children: [
+        {
+          path: 'communicate',
+          component: () => import('@/views/Communication/index'),
+          name: 'communicate',
+          meta: { title: '组件间通讯', icon: 'component', noCache: true }
+        }
+      ]
     }
   ]
 

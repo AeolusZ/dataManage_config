@@ -17,6 +17,10 @@ import './icons' // icon
 import './permission' // permission control
 import './utils/error-log' // error log
 
+// import '../static/jquery.min.js'
+// import layer from '../static/layer/layer'
+// import '../static/layer/theme/default/layer.css'
+
 import * as filters from './filters' // global filters
 
 /**
