@@ -3,6 +3,23 @@
         <el-button @click="handleClick('猪头')">点击生成加密文案</el-button>
         <el-card headerc="加密文案" class="comment">{{comment}}</el-card>
         <el-card headerc="文案中秘文" class="comment">{{uncomment}}</el-card>
+
+        <!-- 自定义列表 -->
+        <form>
+            用户名 <input type="text" name="userName" value="请输入用户名"><br>
+            密码 <input type="password" name="pwd"><br>
+            籍贯 <select name="bornPlace">
+                <option>北京</option>
+                <option>天津</option>
+                <option>河北</option>
+                <option>山东</option>
+            </select><br>
+            性别 <input type="radio" name="sex" value="male" id="male"> <label for="male">男</label> <input type="radio" name="sex" value="female"> 女 <br>
+            爱好 <input type="checkbox" name="hobby" value="eat"> 吃饭 <input type="checkbox" name="hobby" value="sleep"> 睡觉 <input type="checkbox" name="hobby" value="hit"> 打豆豆<br>
+            上传头像 <input type="file" name="file"><br>
+            自我介绍 <textarea rows="3" cols="20"></textarea><br>
+            <input type="submit"> <input type="reset">
+        </form>
     </div>
 </template>
 <script>
