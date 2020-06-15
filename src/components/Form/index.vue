@@ -62,11 +62,9 @@
     </el-form>
 </template>
 <script>
-import AeolusDoubleDatePicker from '@/components/DoubleDatePicker'
 export default {
     name: 'aeolus-form',
     props: ['list', 'model', 'labelWidth', 'contentWidth', 'inline'],
-    components: { AeolusDoubleDatePicker },
     data(){
         return {
             pickerOptions1: {},
