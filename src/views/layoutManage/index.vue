@@ -2,6 +2,7 @@
 <div class="wrap">
     <section class="middle">
         文字居中显示
+        <img src="../../../static/imgs/img1.jpg" width="100px"/>
         <aeolus-double-date-picker :model='dateModel' type="datetime"></aeolus-double-date-picker>
         <el-date-picker v-model="value1" type="datetimerange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期" >
     </el-date-picker>

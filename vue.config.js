@@ -6,7 +6,8 @@ function resolve(dir) {
   return path.join(__dirname, dir)
 }
 
-const name = defaultSettings.title || 'vue Element Admin' // page title
+const { name } = require('./package');
+// const name = defaultSettings.title || 'vue Element Admin' // page title
 
 // If your port is set to 80,
 // use administrator privileges to execute the command line.
@@ -27,17 +28,33 @@ module.exports = {
   publicPath: '/',
   outputDir: 'dist',
   assetsDir: 'static',
-  lintOnSave: process.env.NODE_ENV === 'development',
+  // lintOnSave: process.env.NODE_ENV === 'development',
   productionSourceMap: false,
+  filenameHashing: true,
   devServer: {
-    port: port,
+    // host: '0.0.0.0',
+    hot: true,
+    disableHostCheck: true,
+    port,
     open: true,
     overlay: {
       warnings: false,
-      errors: true
+      errors: true,
     },
-    before: require('./mock/mock-server.js')
+    before: require('./mock/mock-server.js'),
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    },
   },
+  // devServer: {
+  //   port: port,
+  //   open: true,
+  //   overlay: {
+  //     warnings: false,
+  //     errors: true
+  //   },
+  //   before: require('./mock/mock-server.js')
+  // },
   configureWebpack: {
     // provide the app's title in webpack's name field, so that
     // it can be accessed in index.html to inject the correct title.
@@ -46,7 +63,13 @@ module.exports = {
       alias: {
         '@': resolve('src')
       }
-    }
+    },
+    output: {
+      // 把子应用打包成 umd 库格式
+      library: `${name}-[name]`,
+      libraryTarget: 'umd',
+      jsonpFunction: `webpackJsonp_${name}`,
+    },
   },
   chainWebpack(config) {
     config.plugins.delete('preload') // TODO: need test
