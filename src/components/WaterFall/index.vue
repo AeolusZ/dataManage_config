@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <img class="imgStyle" v-for="item in data" :key="item.id" v-bind:src="item.src" :style="{width: width, ...item.style}" @load="initImg"/>
+    <div class="box">
+        <img class="imgStyle" v-for="item in data" :key="item.id"  v-bind:src="item.src" :style="{width: width, ...item.style}" @load="initImg"/>
     </div>
 </template>
 <script>
@@ -9,13 +9,9 @@ export default {
     props: ['data', 'width'],
     mounted(){
         this.initImg()
-        // const _this = this
-        // this.timer = setInterval(function(){
-        //     _this.initImg()
-        // }, 0)
     },
     beforeDestroy(){
-        // clearInterval(this.timer)
+        
     },
     methods: {
         initImg(){
@@ -53,5 +49,4 @@ export default {
 }
 </script>
 <style scoped>
-
 </style>

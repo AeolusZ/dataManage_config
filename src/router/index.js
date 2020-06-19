@@ -29,12 +29,19 @@ export const constantRoutes = [
       path: '/imgManage',
       component: Layout,
       hidden: false,
+      meta: { title: '图片管理', icon: 'component'},
       children: [
         {
           path: 'index',
           component: () => import('@/views/waterfallFlow/index'),
-          name: 'imgManage',
-          meta: { title: '图片管理', icon: 'component', noCache: true }
+          name: 'imgManage-index',
+          meta: { title: '瀑布流', icon: 'component', noCache: true }
+        },
+        {
+          path: 'lazy',
+          component: () => import('@/views/waterfallFlow/lazy'),
+          name: 'imgManage-lazy',
+          meta: { title: '懒加载', icon: 'component', noCache: true }
         }
       ]
     },
