@@ -109,7 +109,7 @@ export const constantRoutes = [
           meta: { title: '组件间通讯', icon: 'component', noCache: true }
         }
       ]
-    }
+    },
   ]
 
 const createRouter = () => new Router({

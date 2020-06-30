@@ -91,7 +91,23 @@ module.exports = {
         symbolId: 'icon-[name]'
       })
       .end()
-
+      // config => {
+      //   config.module.rules.push({
+      //     test: /\.worker\.js$/,
+      //     use: {
+      //       loader: 'worker-loader',
+      //       options: { inline: true }
+      //     }
+      //   })
+      // },
+      config.module
+      .rule('worker')
+      .test(/\.worker$/)
+      .use('worker-loader')
+      .loader('worker-loader')
+      .options({
+        inline: true
+      })
     // set preserveWhitespace
     config.module
       .rule('vue')

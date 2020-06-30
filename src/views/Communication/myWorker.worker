@@ -1,0 +1,9 @@
+self.onmessage = function(e) {
+    let data = e.data
+    console.log('主线程传来的值', data)
+    self.postMessage(data + 'hhhh')
+    self.close()
+}
+
+
+
